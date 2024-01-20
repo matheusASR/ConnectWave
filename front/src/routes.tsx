@@ -1,9 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
 
 const Router = () => {
   return (
     <Routes>
-      <Route path='/' element={} />
+      <Route path='/' element={<Dashboard/>} />
     </Routes>
   );
 };
