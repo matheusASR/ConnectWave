@@ -44,7 +44,7 @@ export const StyledImagePostBox = styled.div`
     width: 100%;
   }
   .image__subtitle {
-    font-size: 16px;
+    font-size: 20px;
     text-align: center;
     padding: 0px 10px;
   }

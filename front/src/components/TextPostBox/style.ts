@@ -36,7 +36,7 @@ export const StyledTextPostBox = styled.div`
     padding: 10px;
   }
   .text__post {
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
   }
 `;
