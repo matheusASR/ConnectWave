@@ -12,13 +12,10 @@ export const StyledImagePostBox = styled.div`
     gap: 20px;
     background-color: #8d3297;
     border-top: 2px solid black;
-    border-bottom: 2px solid black;
   }
   .perfil__image {
-    width: 70px;
-    height: 70px;
-    border: 1px solid black;
-    border-radius: 50px;
+    height: 80px;
+    width: auto;
   }
   .userInfo__post__div {
     display: flex;

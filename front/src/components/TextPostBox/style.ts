@@ -15,10 +15,8 @@ export const StyledTextPostBox = styled.div`
     border-bottom: 2px solid black;
   }
   .perfil__image {
-    width: 70px;
-    height: 70px;
-    border: 1px solid black;
-    border-radius: 50px;
+    height: 80px;
+    width: auto;
   }
   .userInfo__post__div {
     display: flex;

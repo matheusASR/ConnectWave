@@ -1,12 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
-import PerfilPage from './pages/Profile';
+import ProfilePage from './pages/Profile';
+import RegisterPage from './pages/Register';
 
 const Router = () => {
   return (
     <Routes>
       <Route path='/' element={<Dashboard/>} />
-      <Route path='/perfil' element={<PerfilPage/>} />
+      <Route path='/profile' element={<ProfilePage/>} />
+      <Route path='/register' element={<RegisterPage/>} />
     </Routes>
   );
 };
