@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const StyledImagePostBox = styled.div`
   width: 100%;
-  margin-top: 50px;
+  margin: 100px 0px;
+
   .userInfo__post__section {
     height: 80px;
     width: 100%;
