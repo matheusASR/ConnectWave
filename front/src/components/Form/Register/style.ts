@@ -42,4 +42,19 @@ export const StyledRegisterForm = styled.form`
         width: 100%;
         margin-top: 10px;
     }
+    .noAccount__form {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    .loginBtn {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    @media (min-width: 700px) {
+        max-width: 700px;
+    }
 `

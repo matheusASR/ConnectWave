@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import { StyledFormHeader } from "./style";
 
 const FormHeader = () => {
     return (
         <StyledFormHeader>
-            <h1 className="formHeader__title">ConnectWave</h1>
+            <Link to="/" className="formHeader__title">ConnectWave</Link>
         </StyledFormHeader>
     )
 };

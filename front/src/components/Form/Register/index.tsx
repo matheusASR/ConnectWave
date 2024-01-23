@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { StyledRegisterForm } from "./style";
+import { Link } from "react-router-dom";
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -81,6 +82,11 @@ const RegisterForm = () => {
         Foto de Perfil:
         <input className="formRegister__fileInput" type="file" accept="image/*" onChange={handleFileChange} />
       </label>
+
+      <div className="noAccount__form">
+        <p>Já possui uma conta ?</p>
+        <Link className="loginBtn" to="/register">Login</Link>
+      </div>
 
       <button className="formRegister__button" type="submit">Registrar</button>
     </StyledRegisterForm>

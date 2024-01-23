@@ -11,5 +11,6 @@ export const StyledFormHeader = styled.header`
     .formHeader__title {
         color: black;
         font-size: 40px;
+        font-weight: bold;
     }
 `
