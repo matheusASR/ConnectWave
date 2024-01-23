@@ -16,4 +16,37 @@ export const StyledDashboardHeader = styled.header`
         height: 40px;
         width: 40px;
     }
+    .divBttns__dashboard {
+        display: none;
+    }
+    .loginBttn {
+        display: none;
+    }
+    .registerBttn {
+        display: none;
+    }
+    @media (min-width: 700px) {
+        .menu-icon {
+            display: none;
+        }
+        .divBttns__dashboard {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        .loginBttn {
+            display: block;
+            color: black;
+            font-size: 24px;
+        }
+        .registerBttn {
+            display: block;
+            font-size: 19px;
+            border: 1px solid black;
+            background-color: black;
+            color: white;
+            border-radius: 10px;
+            padding: 10px;
+        }
+    }
 `

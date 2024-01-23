@@ -37,4 +37,7 @@ export const StyledTextPostBox = styled.div`
     font-size: 18px;
     text-align: center;
   }
+  @media (min-width: 700px) {
+    max-width: 700px;
+  }
 `;

@@ -8,8 +8,10 @@ const Dashboard = () => {
     return (
         <StyledDashboardPage>
             <DashboardHeader/>
-            <TextPostBox/>
-            <ImagePostBox/>
+            <main className="dashboard__mainContainer">
+                <TextPostBox/>
+                <ImagePostBox/>
+            </main>
             <DashboardFooter/>
         </StyledDashboardPage>
     )
