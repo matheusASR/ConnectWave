@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const StyledRegisterPage = styled.div`
+export const StyledLoginPage = styled.div`
     width: 100%;
     height: auto;
     margin-bottom: 50px;
-    .registerPage__main {
+    .loginPage__main {
         display: flex;
         justify-content: center;
         align-items: center;

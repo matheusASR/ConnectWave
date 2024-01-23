@@ -1,5 +1,5 @@
 import RegisterForm from "../../components/Form/Register";
-import RegisterHeader from "../../components/Header/Register";
+import RegisterHeader from "../../components/Header/Form";
 import { StyledRegisterPage } from "./style";
 
 const RegisterPage = () => {
