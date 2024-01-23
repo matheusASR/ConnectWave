@@ -85,7 +85,7 @@ const RegisterForm = () => {
 
       <div className="noAccount__form">
         <p>Já possui uma conta ?</p>
-        <Link className="loginBtn" to="/register">Login</Link>
+        <Link className="loginBtn" to="/login">Login</Link>
       </div>
 
       <button className="formRegister__button" type="submit">Registrar</button>
