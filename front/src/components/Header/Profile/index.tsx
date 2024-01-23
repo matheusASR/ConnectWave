@@ -1,5 +1,6 @@
 import { StyledProfileHeader } from "./style";
 import Ant from "../../../assets/ant.png";
+import NewPostBttn from "../../../assets/new__post__bttn.png"
 
 const ProfileHeader = () => {
   return (
@@ -12,6 +13,9 @@ const ProfileHeader = () => {
       </p>
       <button className="editProfile__button">
         Editar
+      </button>
+      <button className="postProfile__button">
+       <img className="newPost__bttn" src={NewPostBttn} alt="new-post-button" />
       </button>
     </StyledProfileHeader>
   );
