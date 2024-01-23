@@ -11,12 +11,14 @@ const ProfileHeader = () => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.
       </p>
-      <button className="editProfile__button">
-        Editar
-      </button>
-      <button className="postProfile__button">
-       <img className="newPost__bttn" src={NewPostBttn} alt="new-post-button" />
-      </button>
+      <div className="profile__divBttns">
+        <button className="editProfile__button">
+          Editar
+        </button>
+        <button className="postProfile__button">
+        <img className="newPost__bttn" src={NewPostBttn} alt="new-post-button" />
+        </button>
+      </div>
     </StyledProfileHeader>
   );
 };

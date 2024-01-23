@@ -21,6 +21,9 @@ export const StyledProfileHeader = styled.header`
         margin-bottom: 20px;
         border-radius: 50px;
     }
+    .profile__divBttns {
+        width: 100%;
+    }
     .editProfile__button {
         width: 100%;
         background-color: black;
@@ -41,6 +44,20 @@ export const StyledProfileHeader = styled.header`
         justify-content: center;
         align-items: center;
         font-size: 20px;
-        border-bottom: 2px solid black;
+        border-bottom: 1px solid black;
+    }
+    @media (min-width: 700px) {
+        .profile__divBttns {
+            margin-top: 10px;
+            display: flex;
+        }
+        .editProfile__button {
+            width: 50%;
+            margin-top: 0px;
+        }
+        .postProfile__button {
+            width: 50%;
+            border-top: 1px solid black;
+        }
     }
 `
