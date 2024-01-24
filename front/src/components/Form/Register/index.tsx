@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { StyledRegisterForm } from "./style";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { api } from "../../../services/api";
+import { toast } from "react-toastify";
 
 const RegisterForm = () => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
-    nome: "",
+    username: "",
     email: "",
-    senha: "",
-    biografia: "",
-    fotoPerfil: null, // Este exemplo assume que você está lidando com upload de arquivos
+    password: "",
+    bio: "",
+    profile_picture: null, // Este exemplo assume que você está lidando com upload de arquivos
   });
 
   const handleChange = (e: any) => {
@@ -23,14 +26,29 @@ const RegisterForm = () => {
     const file = e.target.files[0];
     setFormData({
       ...formData,
-      fotoPerfil: file,
+      profile_picture: file,
     });
   };
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    // Adicione aqui a lógica para enviar os dados para o servidor ou realizar outras ações
-    console.log("Dados do formulário:", formData);
+  const handleSubmit = async (e: any) => {
+    try {
+      e.preventDefault()
+      const response = await api.post("/users/", formData);
+      if (response && response.data && response.statusText === "Created") {
+        toast.success("Usuário cadastrado com sucesso!")
+        setTimeout(() => {
+          navigate("/login")
+        }, 2000);
+      } else {
+        toast.error(
+          "Erro ao cadastrar o usuário. Verifique os dados e tente novamente."
+        );
+      }
+    } catch (error: any) {
+      toast.error(
+        `Ocorreu um erro ao cadastrar o usuário: ${error.response.data.message}`
+      );
+    }
   };
 
   return (
@@ -40,8 +58,8 @@ const RegisterForm = () => {
         <input 
           className="formRegister__input"
           type="text"
-          name="nome"
-          value={formData.nome}
+          name="username"
+          value={formData.username}
           onChange={handleChange}
         />
       </label>
@@ -62,8 +80,8 @@ const RegisterForm = () => {
         <input
           className="formRegister__input"
           type="password"
-          name="senha"
-          value={formData.senha}
+          name="password"
+          value={formData.password}
           onChange={handleChange}
         />
       </label>
@@ -72,8 +90,8 @@ const RegisterForm = () => {
         Biografia:
         <textarea
           className="textareaRegister__input"
-          name="biografia"
-          value={formData.biografia}
+          name="bio"
+          value={formData.bio}
           onChange={handleChange}
         />
       </label>

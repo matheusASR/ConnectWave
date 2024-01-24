@@ -9,11 +9,22 @@ import { StyledEditProfileModal } from "../../Modals/EditProfile/style";
 import LogoutBttn from "../../../assets/logout__bttn.png";
 import LogoutModal from "../../Modals/Logout";
 import { StyledLogoutModal } from "../../Modals/Logout/style";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const ProfileHeader = ({ user }: any) => {
+  const navigate = useNavigate()
   const [editProfileModal, setEditProfileModal] = useState(false);
   const [newPostModal, setNewPostModal] = useState(false);
   const [logoutModal, setLogoutModal] = useState(false);
+
+  const logout = () => {
+    localStorage.removeItem("@ConnectWave:TOKEN");
+    toast.success("Usuário deslogado com sucesso!")
+    setTimeout(() => {
+      navigate("/");
+    }, 2000);
+  }
 
   const openEditProfileModal = () => {
     setEditProfileModal(true);
@@ -150,7 +161,7 @@ const ProfileHeader = ({ user }: any) => {
         <StyledLogoutModal>
           <h2>Deseja mesmo fazer Logout?</h2>
           <div className="logoutModal__buttons">
-            <button className="logoutModal__btn logout__btn">Sim</button>
+            <button onClick={logout} className="logoutModal__btn logout__btn">Sim</button>
             <button onClick={closeLogoutModal} className="logoutModal__btn">
               Voltar
             </button>

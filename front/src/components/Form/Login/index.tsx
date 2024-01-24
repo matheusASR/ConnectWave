@@ -1,13 +1,31 @@
 import { useState } from "react";
 import { StyledLoginForm } from "./style";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { api } from "../../../services/api";
 
 const LoginForm = () => {
+  const navigate = useNavigate()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
-    console.log("Login bem-sucedido! Redirecionando...");
+  const handleLogin = async (e: any) => {
+    try {
+      e.preventDefault()
+      const response = await api.post('/users/login/', {
+        username: username,
+        password: password
+      })
+      if (response && response.data && response.statusText === "OK") {
+        toast.success('Usuário logado com sucesso');
+        localStorage.setItem('@ConnectWave:TOKEN', response.data.access)
+        setTimeout(() => {
+          navigate('/profile')
+        }, 2000)
+      } 
+    } catch (error: any) {
+      toast.error(`Erro ao logar o usuário: ${error.response.data.message}`);
+    }
   };
 
   return (

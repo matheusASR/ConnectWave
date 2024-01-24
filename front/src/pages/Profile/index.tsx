@@ -6,7 +6,6 @@ import { api } from "../../services/api";
 import { Link } from "react-router-dom";
 // import PostBox from "../../components/PostBox";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const ProfilePage = () => {
   const [user, setUser] = useState<any>({});
@@ -20,8 +19,7 @@ const ProfilePage = () => {
         setUserNotLogged(true);
       } else {
         try {
-        //   const userId: ?
-          const response = await api.get(`/api/users/${userId}/`, {
+          const response = await api.get("/users/profile/", {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -29,7 +27,7 @@ const ProfilePage = () => {
           if (response.statusText === "OK") {
             setUser(response.data);
             const responseUserPosts = await api.get(
-              `api/posts/user/${response.data.id}/`,
+              `/posts/user/${response.data.id}/`,
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
