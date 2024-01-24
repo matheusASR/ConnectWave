@@ -46,6 +46,13 @@ export const StyledProfileHeader = styled.header`
         font-size: 20px;
         border-bottom: 1px solid black;
     }
+    .logout__bttn {
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        top: 40px;
+        right: 40px;
+    }
     @media (min-width: 700px) {
         .profile__divBttns {
             margin-top: 10px;

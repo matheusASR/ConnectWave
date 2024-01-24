@@ -6,10 +6,14 @@ import EditProfileModal from "../../Modals/EditProfile";
 import NewPostModal from "../../Modals/NewPost";
 import { StyledNewPostModal } from "../../Modals/NewPost/style";
 import { StyledEditProfileModal } from "../../Modals/EditProfile/style";
+import LogoutBttn from "../../../assets/logout__bttn.png"
+import LogoutModal from "../../Modals/Logout";
+import { StyledLogoutModal } from "../../Modals/Logout/style";
 
 const ProfileHeader = () => {
   const [editProfileModal, setEditProfileModal] = useState(false);
   const [newPostModal, setNewPostModal] = useState(false);
+  const [logoutModal, setLogoutModal] = useState(false);
 
   const openEditProfileModal = () => {
     setEditProfileModal(true);
@@ -27,8 +31,17 @@ const ProfileHeader = () => {
     setNewPostModal(false);
   };
 
+  const openLogoutModal = () => {
+    setLogoutModal(true);
+  };
+
+  const closeLogoutModal = () => {
+    setLogoutModal(false);
+  };
+
   return (
     <StyledProfileHeader>
+      <button onClick={openLogoutModal}><img className="logout__bttn" src={LogoutBttn} alt="logout-bttn" /></button>
       <img className="profile__userImage" src={Ant} alt="profile-image" />
       <h1 className="profile__userName">Anthony Edwards</h1>
       <p className="user__bio">
@@ -130,6 +143,15 @@ const ProfileHeader = () => {
           </form>
         </StyledNewPostModal>
       </NewPostModal>
+      <LogoutModal isOpen={logoutModal} onRequestClose={closeLogoutModal} height="300px">
+        <StyledLogoutModal>
+          <h2>Deseja mesmo fazer Logout?</h2>
+          <div className="logoutModal__buttons">
+            <button className="logoutModal__btn logout__btn">Sim</button>
+            <button onClick={closeLogoutModal} className="logoutModal__btn">Voltar</button>
+          </div>
+        </StyledLogoutModal>
+      </LogoutModal>
     </StyledProfileHeader>
   );
 };
