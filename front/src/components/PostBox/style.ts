@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledImagePostBox = styled.div`
   width: 100%;
-  margin: 100px 0px;
+  margin: 50px 0px 100px 0px;
   .userInfo__post__section {
     height: 80px;
     width: 100%;
@@ -44,6 +44,14 @@ export const StyledImagePostBox = styled.div`
     font-size: 20px;
     text-align: center;
     padding: 0px 10px;
+  }
+  .textbox__post__section {
+    width: 100%;
+    padding: 10px;
+  }
+  .text__post {
+    font-size: 18px;
+    text-align: center;
   }
   @media (min-width: 700px) {
     max-width: 700px;

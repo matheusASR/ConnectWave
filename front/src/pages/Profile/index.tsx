@@ -1,23 +1,82 @@
+import { useEffect, useState } from "react";
 import ProfileFooter from "../../components/Footer/Profile";
 import ProfileHeader from "../../components/Header/Profile";
-import ImagePostBox from "../../components/ImagePostBox";
-import TextPostBox from "../../components/TextPostBox";
 import { StyledProfilePage } from "./style";
-// import { useParams } from 'react-router-dom';
+import { api } from "../../services/api";
+import { Link } from "react-router-dom";
+// import PostBox from "../../components/PostBox";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProfilePage = () => {
-    // const { userId } = useParams();
+  const [user, setUser] = useState<any>({});
+  const [userPosts, setUserPosts] = useState<any>({});
+  const [userNotLogged, setUserNotLogged] = useState(false);
 
-    return (
-        <StyledProfilePage>
-            <ProfileHeader/>
-            <main className="profile__mainContainer">
-                <TextPostBox/>
-                <ImagePostBox/>
-            </main>
-            <ProfileFooter/>
-        </StyledProfilePage>
-    )
+  useEffect(() => {
+    const getUserInfos = async () => {
+      const token = localStorage.getItem("@ConnectWave:TOKEN");
+      if (!token) {
+        setUserNotLogged(true);
+      } else {
+        try {
+        //   const userId: ?
+          const response = await api.get(`/api/users/${userId}/`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          if (response.statusText === "OK") {
+            setUser(response.data);
+            const responseUserPosts = await api.get(
+              `api/posts/user/${response.data.id}/`,
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            );
+            if (responseUserPosts.statusText === "OK") {
+              setUserPosts(responseUserPosts.data);
+            }
+          } else {
+            localStorage.removeItem("@ConnectWave:TOKEN");
+            window.location.reload();
+          }
+        } catch (err: any) {
+          toast.error(
+            `Erro ao buscar dados do usuário logado: ${err.response.data.message}`
+          );
+        }
+      }
+    };
+    getUserInfos();
+  }, []);
+
+  return (
+    <StyledProfilePage>
+      {userNotLogged ? (
+        <>
+          <div className="profile__divContainer">
+            <h1>Sem Credenciais!</h1>
+            <Link className="go__login" to="/login">
+              Fazer Login
+            </Link>
+          </div>
+        </>
+      ) : (
+        <>
+          <ProfileHeader user={user} />
+          <main className="profile__mainContainer">
+            {/* {userPosts.map((userPost: any) => (
+              <PostBox key={userPost.id} userPost={userPost} />
+            ))} */}
+          </main>
+        </>
+      )}
+      <ProfileFooter />
+    </StyledProfilePage>
+  );
 };
 
 export default ProfilePage;

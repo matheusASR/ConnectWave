@@ -1,15 +1,23 @@
-import { StyledTextPostBox } from "./style";
+import { StyledImagePostBox } from "./style";
 import Ant from "../../assets/ant.png";
+import AntImage from "../../assets/ant-image.jpg"
 
-const TextPostBox = () => {
+const PostBox = ({userPost}: any) => {
   return (
-    <StyledTextPostBox>
+    <StyledImagePostBox>
       <section className="userInfo__post__section">
         <img className="perfil__image" src={Ant} alt="perfil-image" />
         <div className="userInfo__post__div">
-            <p className="username__post">Anthony Edwards</p>
-            <p className="createdPost__time">Há 3 min</p>
+          <p className="username__post">Anthony Edwards</p>
+          <p className="createdPost__time">Há 3 min</p>
         </div>
+      </section>
+      <section className="imagebox__post__section">
+        <img className="image__post" src={AntImage} alt="image-post" />
+        <p className="image__subtitle">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
       </section>
       <section className="textbox__post__section">
         <p className="text__post">
@@ -22,8 +30,8 @@ const TextPostBox = () => {
           culpa qui officia deserunt mollit anim id est laborum.
         </p>
       </section>
-    </StyledTextPostBox>
+    </StyledImagePostBox>
   );
 };
 
-export default TextPostBox;
+export default PostBox;

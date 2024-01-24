@@ -4,6 +4,11 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from .permissions import IsAccountOwner
 from drf_spectacular.utils import extend_schema
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 class UserView(ListCreateAPIView):
     queryset = User.objects.all()
@@ -24,6 +29,20 @@ class UserView(ListCreateAPIView):
     )
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
+    
+class GetUserByToken(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user_data = {
+            'username': request.user.username,
+            'email': request.user.email,
+            'bio': request.user.bio,
+            'profile_picture': request.user.profile_picture,
+        }
+
+        return Response(user_data, status=status.HTTP_200_OK)
 
 class UserDetailView(RetrieveUpdateDestroyAPIView):
     authentication_classes = [JWTAuthentication]

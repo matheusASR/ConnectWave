@@ -45,7 +45,8 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "rest_framework",
     "drf_spectacular",
-    "corsheaders"
+    "corsheaders",
+    "rest_framework.authtoken",
 ]
 
 MY_APPS = [
