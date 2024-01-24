@@ -2,7 +2,7 @@ import Modal from 'react-modal';
 
 Modal.setAppElement('#root'); 
 
-const NewPostModal = ({ isOpen, onRequestClose, children }: any) => {
+const NewPostModal = ({ isOpen, onRequestClose, children, height }: any) => {
   const customStyles = {
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0.5)", 
@@ -15,6 +15,7 @@ const NewPostModal = ({ isOpen, onRequestClose, children }: any) => {
       borderRadius: "4px",
       outline: "none",
       padding: "20px",
+      height: height || 'auto'
     },
   };
 

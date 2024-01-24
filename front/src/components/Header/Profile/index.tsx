@@ -73,6 +73,7 @@ const ProfileHeader = ({ user }: any) => {
       <EditProfileModal
         isOpen={editProfileModal}
         onRequestClose={closeEditProfileModal}
+        height="700px"
       >
         <StyledEditProfileModal>
           <div className="modal__header">
@@ -117,7 +118,7 @@ const ProfileHeader = ({ user }: any) => {
           </form>
         </StyledEditProfileModal>
       </EditProfileModal>
-      <NewPostModal isOpen={newPostModal} onRequestClose={closeNewPostModal}>
+      <NewPostModal isOpen={newPostModal} onRequestClose={closeNewPostModal} height="600px">
         <StyledNewPostModal>
           <div className="modal__header">
             <h2>Criar Post</h2>

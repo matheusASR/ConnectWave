@@ -5,6 +5,8 @@ export const StyledProfilePage = styled.div`
     height: 100%;
     .profile__mainContainer {
         display: flex;
+        height: 50vh;
+        width: 100%;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -20,6 +22,20 @@ export const StyledProfilePage = styled.div`
             font-weight: bold;
             font-size: 22px;
             text-decoration: underline;
+        }
+    }
+    .noContent__profile {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        .noContent__h1 {
+            font-size: 22px;
+        }
+        .noContent__p {
+            font-size: 19px;
         }
     }
 `

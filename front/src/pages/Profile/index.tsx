@@ -66,9 +66,18 @@ const ProfilePage = () => {
         <>
           <ProfileHeader user={user} />
           <main className="profile__mainContainer">
-            {/* {userPosts.map((userPost: any) => (
-              <PostBox key={userPost.id} userPost={userPost} />
-            ))} */}
+            {userPosts.lenght > 0 ? (
+              <>
+                {/* {userPosts.map((userPost: any) => (
+            <PostBox key={userPost.id} userPost={userPost} />
+          ))} */}
+              </>
+            ) : (
+              <div className="noContent__profile">
+                <h1 className="noContent__h1">Você ainda não possui nenhum Post.</h1>
+                <p className="noContent__p">Comece a criar!</p>
+              </div>
+            )}
           </main>
         </>
       )}

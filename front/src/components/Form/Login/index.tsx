@@ -9,9 +9,8 @@ const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async (e: any) => {
+  const handleLogin = async () => {
     try {
-      e.preventDefault()
       const response = await api.post('/users/login/', {
         username: username,
         password: password

@@ -30,9 +30,8 @@ const RegisterForm = () => {
     });
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async () => {
     try {
-      e.preventDefault()
       const response = await api.post("/users/", formData);
       if (response && response.data && response.statusText === "Created") {
         toast.success("Usuário cadastrado com sucesso!")
