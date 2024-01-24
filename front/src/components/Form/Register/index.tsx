@@ -36,7 +36,7 @@ const RegisterForm = () => {
   return (
     <StyledRegisterForm onSubmit={handleSubmit}>
       <label className="formRegister__label">
-        Nome:
+        Nome de Usuário:
         <input 
           className="formRegister__input"
           type="text"

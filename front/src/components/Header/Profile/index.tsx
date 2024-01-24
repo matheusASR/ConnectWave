@@ -60,7 +60,7 @@ const ProfileHeader = () => {
           </div>
           <form className="editProfile__form">
             <label className="formEdit__label">
-              Nome:
+              Nome de Usuário:
               <input className="formEdit__input" type="text" name="nome" />
             </label>
 

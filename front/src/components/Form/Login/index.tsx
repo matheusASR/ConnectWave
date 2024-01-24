@@ -3,7 +3,7 @@ import { StyledLoginForm } from "./style";
 import { Link } from "react-router-dom";
 
 const LoginForm = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
@@ -13,12 +13,12 @@ const LoginForm = () => {
   return (
     <StyledLoginForm>
       <label className="formLogin__label">
-        Email:
+        Nome de Usuário:
         <input
           className="formLogin__input"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
       </label>
       <label className="formLogin__label">
