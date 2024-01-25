@@ -5,7 +5,7 @@ export const StyledDashboardPage = styled.div`
     height: 100%;
     .dashboard__mainContainer {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         justify-content: center;
         .noContent__dashboard {

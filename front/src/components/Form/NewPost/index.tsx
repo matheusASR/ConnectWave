@@ -41,7 +41,8 @@ const NewPostForm = () => {
         }, 1500);
       }
     } catch (error: any) {
-      toast.error(`Erro ao criar publicação: ${error.response.data.message}`);
+      console.log(error)
+      toast.error(`Erro ao criar publicação: ${error.response.data.detail}`);
     }
   };
 
