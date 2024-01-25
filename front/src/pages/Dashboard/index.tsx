@@ -13,7 +13,11 @@ const Dashboard = () => {
   useEffect(() => {
     const getAllPosts = async () => {
       try {
-        const postsResponse = await api.get("/posts/all/");
+        const postsResponse = await api.get("/posts/all/", {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
         setAllPosts(postsResponse.data);
       } catch (error: any) {
         console.error(

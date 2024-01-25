@@ -11,7 +11,7 @@ const RegisterForm = () => {
     email: "",
     password: "",
     bio: "",
-    profile_picture: null, // Este exemplo assume que você está lidando com upload de arquivos
+    profile_picture: ""
   });
 
   const handleChange = (e: any) => {
@@ -30,9 +30,14 @@ const RegisterForm = () => {
     });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e:any) => {
+    e.preventDefault()
     try {
-      const response = await api.post("/users/", formData);
+      const response = await api.post("/users/", formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
       if (response && response.data && response.statusText === "Created") {
         toast.success("Usuário cadastrado com sucesso!")
         setTimeout(() => {
@@ -60,6 +65,7 @@ const RegisterForm = () => {
           name="username"
           value={formData.username}
           onChange={handleChange}
+          required
         />
       </label>
 
@@ -71,6 +77,7 @@ const RegisterForm = () => {
           name="email"
           value={formData.email}
           onChange={handleChange}
+          required
         />
       </label>
 
@@ -82,6 +89,7 @@ const RegisterForm = () => {
           name="password"
           value={formData.password}
           onChange={handleChange}
+          required
         />
       </label>
 
@@ -92,12 +100,13 @@ const RegisterForm = () => {
           name="bio"
           value={formData.bio}
           onChange={handleChange}
+          required
         />
       </label>
 
       <label className="formRegister__label">
         Foto de Perfil:
-        <input className="formRegister__fileInput" type="file" accept="image/*" onChange={handleFileChange} />
+        <input className="formRegister__fileInput" type="file" accept="image/*" onChange={handleFileChange} required/>
       </label>
 
       <div className="noAccount__form">

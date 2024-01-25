@@ -32,6 +32,7 @@ const EditProfileForm = ({userId}: any) => {
       const response = await api.patch(`/users/${userId}/`, filteredFormData, {
         headers: {
           Authorization: `Bearer ${token}`,
+          'Content-Type': 'multipart/form-data'
         },
       });
       if (response.statusText === "OK") {

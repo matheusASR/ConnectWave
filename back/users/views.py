@@ -7,6 +7,8 @@ from drf_spectacular.utils import extend_schema
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.parsers import MultiPartParser, FormParser
+import base64
 
 class UserView(ListCreateAPIView):
     queryset = User.objects.all()
@@ -29,6 +31,7 @@ class UserView(ListCreateAPIView):
         return self.create(request, *args, **kwargs)
     
 class GetUserByToken(APIView):
+    parser_classes = [MultiPartParser, FormParser]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
@@ -37,7 +40,7 @@ class GetUserByToken(APIView):
             'id': user.id,
             'username': user.username,
             'bio': user.bio,
-            # 'profile_picture': user.profile_picture
+            'profile_picture': user.profile_picture.url if user.profile_picture else None
         }
         return Response(response_data)
 

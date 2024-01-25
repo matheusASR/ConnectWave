@@ -32,6 +32,7 @@ const NewPostForm = () => {
       const response = await api.post(`/posts/create/`, filteredPostData, {
         headers: {
           Authorization: `Bearer ${token}`,
+          'Content-Type': 'multipart/form-data',
         },
       });
       if (response.statusText === "Created") {
@@ -47,7 +48,7 @@ const NewPostForm = () => {
   };
 
   return (
-    <StyledNewPostForm onSubmit={handleSubmit}>
+    <StyledNewPostForm onSubmit={handleSubmit} encType="multipart/form-data">
       <label className="formPost__label">
         Post de Texto:
         <textarea

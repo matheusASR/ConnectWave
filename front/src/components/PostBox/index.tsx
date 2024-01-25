@@ -1,13 +1,11 @@
 import { StyledImagePostBox } from "./style";
-import Ant from "../../assets/ant.png";
-import AntImage from "../../assets/ant-image.jpg";
 import TimeAgo from "./utils";
 
 const PostBox = ({ userPost }: any) => {
   return (
     <StyledImagePostBox>
       <section className="userInfo__post__section">
-        <img className="perfil__image" src={Ant} alt="perfil-image" />
+        <img className="perfil__image" src={userPost.user.profile_picture} alt="perfil-image" />
         <div className="userInfo__post__div">
           <p className="username__post">{userPost.user.username}</p>
           <p className="createdPost__time">
@@ -21,7 +19,7 @@ const PostBox = ({ userPost }: any) => {
         </section>
       ) : (
         <section className="imagebox__post__section">
-          <img className="image__post" src={AntImage} alt="image-post" />
+          <img className="image__post" src={userPost.image} alt="image-post" />
           <p className="image__subtitle">{userPost.caption}</p>
         </section>
       )}

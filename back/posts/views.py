@@ -5,8 +5,10 @@ from .models import Post
 from .serializers import PostSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
+from rest_framework.parsers import MultiPartParser, FormParser
 
 class PostCreateView(APIView):
+    parser_classes = [MultiPartParser, FormParser]
     permission_classes = [IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
@@ -22,6 +24,7 @@ class DeletePostView(generics.DestroyAPIView):
     serializer_class = PostSerializer
 
 class GetPostsByUserIdView(generics.ListAPIView):
+    parser_classes = [MultiPartParser, FormParser]
     serializer_class = PostSerializer
 
     def get_queryset(self):
@@ -29,6 +32,7 @@ class GetPostsByUserIdView(generics.ListAPIView):
         return Post.objects.filter(user__id=user_id)
 
 class GetAllPostsView(generics.ListAPIView):
+    parser_classes = [MultiPartParser, FormParser]
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 

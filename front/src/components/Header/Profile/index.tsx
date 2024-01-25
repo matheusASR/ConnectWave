@@ -1,5 +1,4 @@
 import { StyledProfileHeader } from "./style";
-import Ant from "../../../assets/ant.png";
 import NewPostBttn from "../../../assets/new__post__bttn.png";
 import { useState } from "react";
 import EditProfileModal from "../../Modals/EditProfile";
@@ -57,7 +56,7 @@ const ProfileHeader = ({ user }: any) => {
       <button onClick={openLogoutModal}>
         <img className="logout__bttn" src={LogoutBttn} alt="logout-bttn" />
       </button>
-      <img className="profile__userImage" src={Ant} alt="profile-image" />
+      <img className="profile__userImage" src={user.profile_picture} alt="profile-image" />
       <h1 className="profile__userName">{user.username}</h1>
       <p className="user__bio">{user.bio}</p>
       <div className="profile__divBttns">
