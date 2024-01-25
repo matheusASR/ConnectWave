@@ -45,7 +45,7 @@ const RegisterForm = () => {
       }
     } catch (error: any) {
       toast.error(
-        `Ocorreu um erro ao cadastrar o usuário: ${error.response.data.message}`
+        `Ocorreu um erro ao cadastrar o usuário: ${error.response.data.detail}`
       );
     }
   };

@@ -23,7 +23,7 @@ const LoginForm = () => {
         }, 2000)
       } 
     } catch (error: any) {
-      toast.error(`Erro ao logar o usuário: ${error.response.data.message}`);
+      toast.error(`Erro ao logar o usuário: ${error.response.data.detail}`);
     }
   };
 
