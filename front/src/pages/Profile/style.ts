@@ -41,7 +41,7 @@ export const StyledProfilePage = styled.div`
     .userPosts__list {
         display: flex;
         flex-direction: column-reverse;
-        width: 80%;
+        width: 100%;
         text-align: center;
         justify-content: center;
         align-items: center;

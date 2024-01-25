@@ -14,8 +14,9 @@ export const StyledImagePostBox = styled.div`
     border-top: 2px solid black;
   }
   .perfil__image {
-    height: 80px;
+    height: 70px;
     width: auto;
+    border-radius: 5px;
   }
   .userInfo__post__div {
     display: flex;

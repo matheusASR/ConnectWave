@@ -19,6 +19,8 @@ const ProfileHeader = ({ user }: any) => {
   const [newPostModal, setNewPostModal] = useState(false);
   const [logoutModal, setLogoutModal] = useState(false);
 
+  const correctURL = `http://localhost:8000${user.profile_picture}`
+
   const logout = () => {
     localStorage.removeItem("@ConnectWave:TOKEN");
     toast.success("Usuário deslogado com sucesso!")
@@ -56,7 +58,7 @@ const ProfileHeader = ({ user }: any) => {
       <button onClick={openLogoutModal}>
         <img className="logout__bttn" src={LogoutBttn} alt="logout-bttn" />
       </button>
-      <img className="profile__userImage" src={user.profile_picture} alt="profile-image" />
+      <img className="profile__userImage" src={correctURL} alt="profile-image" />
       <h1 className="profile__userName">{user.username}</h1>
       <p className="user__bio">{user.bio}</p>
       <div className="profile__divBttns">
