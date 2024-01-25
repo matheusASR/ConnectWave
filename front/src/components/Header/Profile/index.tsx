@@ -11,6 +11,8 @@ import LogoutModal from "../../Modals/Logout";
 import { StyledLogoutModal } from "../../Modals/Logout/style";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import EditProfileForm from "../../Form/EditProfile";
+import NewPostForm from "../../Form/NewPost";
 
 const ProfileHeader = ({ user }: any) => {
   const navigate = useNavigate()
@@ -82,40 +84,7 @@ const ProfileHeader = ({ user }: any) => {
               X
             </button>
           </div>
-          <form className="editProfile__form">
-            <label className="formEdit__label">
-              Nome de Usuário:
-              <input className="formEdit__input" type="text" name="nome" />
-            </label>
-
-            <label className="formEdit__label">
-              Email:
-              <input className="formEdit__input" type="email" name="email" />
-            </label>
-
-            <label className="formEdit__label">
-              Senha:
-              <input className="formEdit__input" type="password" name="senha" />
-            </label>
-
-            <label className="formEdit__label">
-              Biografia:
-              <textarea className="textareaEdit__input" name="biografia" />
-            </label>
-
-            <label className="formEdit__label">
-              Foto de Perfil:
-              <input
-                className="formEdit__fileInput"
-                type="file"
-                accept="image/*"
-              />
-            </label>
-
-            <button className="formEdit__button" type="submit">
-              Salvar
-            </button>
-          </form>
+          <EditProfileForm userId={user.id} />
         </StyledEditProfileModal>
       </EditProfileModal>
       <NewPostModal isOpen={newPostModal} onRequestClose={closeNewPostModal} height="600px">
@@ -126,32 +95,7 @@ const ProfileHeader = ({ user }: any) => {
               X
             </button>
           </div>
-          <form className="newPost__form">
-            <label className="formPost__label">
-              Post de Texto:
-              <textarea className="textareaPost__input" name="biografia" />
-            </label>
-
-            <p className="otherPost__form">Ou</p>
-
-            <label className="formPost__label">
-              Post de Imagem:
-              <input
-                className="formPost__fileInput"
-                type="file"
-                accept="image/*"
-              />
-            </label>
-
-            <label className="formPost__label">
-              Legenda:
-              <textarea className="textareaSubtitle__input" name="biografia" />
-            </label>
-
-            <button className="formPost__button" type="submit">
-              Postar
-            </button>
-          </form>
+          <NewPostForm/>
         </StyledNewPostModal>
       </NewPostModal>
       <LogoutModal
