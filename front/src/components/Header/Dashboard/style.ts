@@ -49,4 +49,7 @@ export const StyledDashboardHeader = styled.header`
             padding: 10px;
         }
     }
+    .purple__bg {
+        background-color: #8D3297;
+    }
 `
