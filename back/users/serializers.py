@@ -29,3 +29,4 @@ class UserSerializer(serializers.ModelSerializer):
                 "validators": [UniqueValidator(queryset=User.objects.all(), message="This field must be unique.")]
             }
         }
+
