@@ -5,7 +5,6 @@ export const StyledProfilePage = styled.div`
     height: 100%;
     .profile__mainContainer {
         display: flex;
-        height: 50vh;
         width: 100%;
         flex-direction: column;
         align-items: center;
@@ -27,6 +26,7 @@ export const StyledProfilePage = styled.div`
     .noContent__profile {
         display: flex;
         flex-direction: column;
+        height: 50vh;
         width: 80%;
         text-align: center;
         justify-content: center;
@@ -37,5 +37,13 @@ export const StyledProfilePage = styled.div`
         .noContent__p {
             font-size: 19px;
         }
+    }
+    .userPosts__list {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
     }
 `

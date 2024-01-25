@@ -4,7 +4,7 @@ import ProfileHeader from "../../components/Header/Profile";
 import { StyledProfilePage } from "./style";
 import { api } from "../../services/api";
 import { Link } from "react-router-dom";
-// import PostBox from "../../components/PostBox";
+import PostBox from "../../components/PostBox";
 import { toast } from "react-toastify";
 
 const ProfilePage = () => {
@@ -66,15 +66,17 @@ const ProfilePage = () => {
         <>
           <ProfileHeader user={user} />
           <main className="profile__mainContainer">
-            {userPosts.lenght > 0 ? (
-              <>
-                {/* {userPosts.map((userPost: any) => (
-            <PostBox key={userPost.id} userPost={userPost} />
-          ))} */}
-              </>
+            {userPosts.length > 0 ? (
+              <div className="userPosts__list">
+                {userPosts.map((userPost: any) => (
+                  <PostBox key={userPost.id} userPost={userPost} />
+                ))}
+              </div>
             ) : (
               <div className="noContent__profile">
-                <h1 className="noContent__h1">Você ainda não possui nenhum Post.</h1>
+                <h1 className="noContent__h1">
+                  Você ainda não possui nenhum Post.
+                </h1>
                 <p className="noContent__p">Comece a criar!</p>
               </div>
             )}
