@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledImagePostBox = styled.div`
+export const StyledPostBox = styled.div`
   width: 100%;
   margin: 50px 0px 100px 0px;
   .userInfo__post__section {
@@ -53,6 +53,21 @@ export const StyledImagePostBox = styled.div`
   .text__post {
     font-size: 18px;
     text-align: center;
+  }
+  .comments__btn__section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .comments__btn {
+    width: 250px;
+    height: 50px;
+    font-size: 23px;
+    font-weight: bold;
+    color: #8d3297;
+    border-radius: 25px;
   }
   @media (min-width: 700px) {
     max-width: 700px;
